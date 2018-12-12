@@ -12,10 +12,11 @@ let MARKDOWN_FILES
 let FILE_STORAGE = []
 
 exports.generateDocs = args => {
+  commitBefore()
   getOriginalReadme()
   objectifyFiles()
   buildRootREADME()
-  commit()
+  commitAfter()
 }
 
 function getOriginalReadme() {
@@ -86,7 +87,12 @@ function buildRootREADME() {
 
 }
 
-function commit() {
+function commitAfter() {
   child_proccess.execSync("git add README.md")
-  child_proccess.execSync("git commit -m 'Docs: Regenerated'")
+  child_proccess.execSync('git commit -m "Docs: Regenerate README :tada:"')
+}
+
+function commitBefore() {
+  child_proccess.execSync("git add *")
+  child_proccess.execSync('git commit -m "New snippets :fire:"')
 }
