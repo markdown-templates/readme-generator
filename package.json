@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Generate docs for github.com/markdown-templates",
   "main": "src/index.js",
+  "bin": {
+    "mdt-docs": "./bin/cli.js"
+  },
+  "preferGlobal": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node src/test.js",
     "format": "./node_modules/.bin/prettier --write **/*",
     "formatjs": "./node_modules/.bin/prettier --write **/*.js"
   },
@@ -28,5 +32,8 @@
     "eslint": "^5.10.0",
     "eslint-plugin-prettier": "^3.0.0",
     "prettier": "^1.15.3"
+  },
+  "dependencies": {
+    "glob": "^7.1.3"
   }
 }
