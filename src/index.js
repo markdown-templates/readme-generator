@@ -12,11 +12,13 @@ let MARKDOWN_FILES
 let FILE_STORAGE = []
 
 exports.generateDocs = args => {
-  commitBefore()
+  if(args[0] != 'debug')
+    commitBefore()
   getOriginalReadme()
   objectifyFiles()
   buildRootREADME()
-  commitAfter()
+  if(args[0] != 'debug')
+    commitAfter()
 }
 
 function getOriginalReadme() {
@@ -68,6 +70,7 @@ function writeToRootREADME(content) {
 function buildRootREADME() {
 
   let builder = ''
+  let section = ''
 
   builder += ORIGINAL_README.content
   builder += '\n\n'
@@ -75,14 +78,37 @@ function buildRootREADME() {
   builder += '\n\n'
 
   FILE_STORAGE.forEach(file => {
-    builder += `# [${file.dir}${file.name}](${file.dir}${file.name})`
-    builder += '\n\n'
-    builder += `<details>
-    <summary>${file.name}</summary>
-    
-    ${file.content}
-    
-    </details>`
+
+    if(section === '') {
+      // Need to create new section
+      section = file.dir
+      builder += `<details> <summary>${section}</summary>
+
+### [${file.dir}${file.name}](${file.dir}${file.name})
+${file.content}
+
+
+`
+
+
+    } else if (section != file.dir) {
+      builder += `</details>`
+      // Need to create new section
+      section = file.dir
+      builder += `<details> <summary>${section}</summary>
+
+### [${file.dir}${file.name}](${file.dir}${file.name})
+${file.content}
+
+
+`
+    } else if (section == file.dir) {
+      // Section is file.dir --> Add to section
+      builder += `### [${file.dir}${file.name}](${file.dir}${file.name})`
+      builder += '\n\n'
+      builder += file.content
+    }
+
     builder += '\n\n'
   })
 
