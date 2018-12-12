@@ -1,5 +1,6 @@
 const fs = require('fs')
 var glob = require('glob')
+const child_proccess = require('child_process')
 
 const ORIGINAL_README_NAME = 'README_RAW.md'
 
@@ -82,4 +83,9 @@ function buildRootREADME() {
 
   writeToRootREADME(builder)
 
+}
+
+function commit() {
+  child_proccess.execSync("git add README.md")
+  child_proccess.execSync("git commit -m 'Docs: Regenerated'")
 }
