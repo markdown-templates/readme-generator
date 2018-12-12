@@ -71,15 +71,18 @@ function buildRootREADME() {
 
   builder += ORIGINAL_README.content
   builder += '\n\n'
-  builder += '----\n'
-  builder += '----\n'
-  builder += '----\n'
+  builder += '----'
   builder += '\n\n'
 
   FILE_STORAGE.forEach(file => {
     builder += `# [${file.dir}${file.name}](${file.dir}${file.name})`
     builder += '\n\n'
-    builder += file.content
+    builder += `<details>
+    <summary>${file.name}</summary>
+    
+    ${file.content}
+    
+    </details>`
     builder += '\n\n'
   })
 
