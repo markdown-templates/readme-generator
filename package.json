@@ -4,7 +4,9 @@
   "description": "Generate docs for github.com/markdown-templates",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "./node_modules/.bin/prettier --write **/*",
+    "formatjs": "./node_modules/.bin/prettier --write **/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/markdown-templates/docs-generator/issues"
   },
-  "homepage": "https://github.com/markdown-templates/docs-generator#readme"
+  "homepage": "https://github.com/markdown-templates/docs-generator#readme",
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "prettier": "^1.15.3"
+  }
 }
