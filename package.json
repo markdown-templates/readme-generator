@@ -1,0 +1,25 @@
+{
+  "name": "mdt-docs-generator",
+  "version": "1.0.0",
+  "description": "Generate docs for github.com/markdown-templates",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markdown-templates/docs-generator.git"
+  },
+  "keywords": [
+    "Generator",
+    "markdown",
+    "docs",
+    "documentation"
+  ],
+  "author": "MarvinJWendt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/markdown-templates/docs-generator/issues"
+  },
+  "homepage": "https://github.com/markdown-templates/docs-generator#readme"
+}
