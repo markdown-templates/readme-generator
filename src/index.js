@@ -15,6 +15,7 @@ exports.generateDocs = args => {
   getOriginalReadme()
   objectifyFiles()
   buildRootREADME()
+  commit()
 }
 
 function getOriginalReadme() {
