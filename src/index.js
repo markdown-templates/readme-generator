@@ -68,9 +68,9 @@ function buildRootREADME() {
 
   builder += ORIGINAL_README.content
   builder += '\n\n'
-  builder += '----'
-  builder += '----'
-  builder += '----'
+  builder += '----\n'
+  builder += '----\n'
+  builder += '----\n'
   builder += '\n\n'
 
   FILE_STORAGE.forEach(file => {
