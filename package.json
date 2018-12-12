@@ -1,6 +1,6 @@
 {
   "name": "mdt-docs-generator",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Generate docs for github.com/markdown-templates",
   "main": "src/index.js",
   "bin": {
