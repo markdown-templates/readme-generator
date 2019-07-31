@@ -123,5 +123,5 @@ function commitAfter() {
 
 function commitBefore() {
   child_proccess.execSync("git add *")
-  child_proccess.execSync('git commit -m "New snippets :fire:"')
+  child_proccess.execSync('git commit -m "Updated :rocket:"')
 }
